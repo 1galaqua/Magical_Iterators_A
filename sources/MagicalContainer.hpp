@@ -21,7 +21,7 @@ public:
     
     ~MagicalContainer(){};
     MagicalContainer () noexcept{};
-    void addElement(int new_val){};
+    void addElement(int element){};
     void removeElement( int element){};
     size_t size() const{return 0;}
     class AscendingIterator;
@@ -35,10 +35,7 @@ class MagicalContainer::AscendingIterator {
 private:
     const MagicalContainer* magic_container;
     size_t index;
-    AscendingIterator(const MagicalContainer& container, size_t index)
-    :magic_container(&container), index(index){}
-    void throwOnOverIncrementation() const{};
-
+   
 public:
     AscendingIterator(const MagicalContainer& container){};
     AscendingIterator(const AscendingIterator& other){};
@@ -66,8 +63,6 @@ private:
     const MagicalContainer* magic_container;
     size_t index;
   
-    void throwOnOverIncrementation() const{};
-
 public:
     SideCrossIterator(const MagicalContainer& container){};
     SideCrossIterator(const SideCrossIterator& other){};
@@ -92,10 +87,7 @@ class MagicalContainer::PrimeIterator {
 private:
     const MagicalContainer* magic_container;
     size_t index;
-    PrimeIterator(const MagicalContainer& container, size_t index)
-    :magic_container(&container), index(index){}
-    void throwOnOverIncrementation() const{};
-
+   
 public:
     PrimeIterator(const MagicalContainer& container){};
     PrimeIterator(const PrimeIterator& other){};
@@ -111,7 +103,7 @@ public:
     PrimeIterator begin() const{return *this;}
     PrimeIterator end() const{return *this;}
 
-    int operator*() const{return false;}
+    int operator*() const{return 0;}
     PrimeIterator& operator++(){return *this;}
 
 };
